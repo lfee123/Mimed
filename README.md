@@ -179,12 +179,12 @@ tests/                           # Pytest suite
 ### 3.3 Modeling Layer (`mimed/modeling/`)
 
 #### `segment_resolver.py`
-- **Input**: A `Campaign` and a minimum observation count (`min_obs=10`).
+- **Input**: A `Campaign` and a minimum observation count (`min_obs=25`).
 - **Output**: A `SegmentResult` with the filtered clean posts, segment key, fallback level, observation count, and suspicious post rate.
 - **What it does**:
   - Drops suspicious posts (keeps `flagged_suspicious == 0`).
   - Keeps only posts with `published_at < campaign.start_date`.
-  - If fewer than 10 observations remain, it falls back through four levels:
+  - If fewer than 25 observations remain, it falls back through four levels:
     $$\text{Platform + Category + Format + Tier (Level 0)} \longrightarrow \text{Platform + Category (Level 1)} \longrightarrow \text{Platform (Level 2)} \longrightarrow \text{Global (Level 3)}$$
 
 #### `view_distribution.py`
